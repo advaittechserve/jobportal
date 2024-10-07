@@ -1,0 +1,52 @@
+/* ApplicantsTable.css */
+.filter-input, .filter-select {
+    font-size: 13px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.filter-input::placeholder {
+    font-size: 13px;
+}
+
+.filter-select {
+    font-size: 13px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.link-blue {
+    color: #007bff; /* Bootstrap primary color */
+}
+.note-text {
+    color: #007bff; /* Bootstrap primary color */
+}
+
+.status-accepted {
+    color: green;
+}
+.status-rejected {
+    color: #E02424;
+}
+
+.note-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.note-input:focus {
+    border-color: #12BBB4;
+    outline: none;
+}
+
+
+@media (max-width: 768px) {
+    .filter-input, .filter-select {
+        margin-bottom: 8px;
+    }
+}

@@ -1,0 +1,290 @@
+/* Header Section */
+.headerSection {
+    background: var(--colorWhite);
+    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: background 0.3s, top 0.3s;
+    z-index: 9;
+}
+
+.headerSection.active {
+    background: transparent;
+    top: 15px;
+}
+
+.headerSection.active .navbar {
+    background: var(--colorWhite);
+    border-radius: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar */
+.navbar {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: padding 0.3s;
+}
+
+.navbar .logo {
+    flex: 0 0 98px;
+}
+
+.navbar .logo img {
+    height: 24px;
+}
+
+/* Navigation List Box (Mobile) */
+.navListBox {
+    position: fixed;
+    top: 63px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 63px);
+    background: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.navListBox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Navigation List */
+.navList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navList > li {
+    position: relative;
+    margin-right: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.navList > li:last-child {
+    margin-right: 0;
+}
+
+.navList .linkText {
+    text-decoration: none;
+    color: var(--titleColor);
+    font-family: var(--font-medium);
+    line-height: 1.5;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.navList .linkText:hover {
+    color: var(--hoverColor); /* Change this color as needed */
+}
+
+.navList .linkText.splLink {
+    background: var(--titleColor);
+    color: var(--colorWhite);
+    border-radius: 42px;
+    padding: 17px 22px;
+    font-size: 13px;
+    transition: background 0.3s;
+}
+
+.navList .linkText.splLink:hover {
+    background: var(--hoverBgColor); /* Change this color as needed */
+}
+
+/* Dropdown Menu */
+.navList > li.dropMenu .linkText:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 5px;
+    background: url("~/assets/images/downarrow.svg") no-repeat;
+    background-position: right center;
+    transition: transform 0.3s;
+}
+
+.navList > li.dropMenu .dropMenuWrapper {
+    position: absolute;
+    width: 549px;
+    left: 50%;
+    top: 140%;
+    transform: translateX(-50%);
+    padding-top: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.navList > li.dropMenu:hover .dropMenuWrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.dropMenuWrapper .dropdownBox {
+    background: var(--colorWhite);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dropdownList .item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 16px;
+    transition: background 0.3s;
+    margin-bottom: 16px;
+}
+
+.dropdownList .item:hover {
+    background: #edf6f7;
+}
+
+.dropdownList .imageBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.dropdownList .textBox .menuTitle {
+    font-family: var(--font-medium);
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: var(--titleColor);
+}
+
+.dropdownList .textBox .menuDetails {
+    font-size: 14px;
+    color: var(--subtitleColor);
+}
+
+/* Special Link List */
+.splList {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.splList li .splLink {
+    background: var(--titleColor);
+    color: var(--colorWhite);
+    border-radius: 42px;
+    padding: 17px 22px;
+    font-size: 13px;
+    transition: background 0.3s;
+}
+
+.splList li .splLink:hover {
+    background: var(--hoverBgColor); /* Customize hover background color */
+}
+
+/* Burger Button (Hamburger) */
+.burgerBtn {
+    background: #f4f4f4;
+    border-radius: 40px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    position: relative;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.burgerBtn:hover {
+    background: #e2e8f0;
+}
+
+.burgerBtn span {
+    background: #000;
+    width: 18px;
+    height: 2px;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    transition: all 0.4s ease;
+}
+
+.burgerBtn span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burgerBtn span:nth-child(3) {
+    top: auto;
+    bottom: 12px;
+}
+
+.burgerBtn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burgerBtn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burgerBtn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Loader Overlay */
+.loader-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.loader-overlay.active {
+    display: flex;
+}
+
+.loader-overlay .animation {
+    width: 50px;
+    height: 50px;
+    background-color: red; /* Customize loader color */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Keyframes for Loader */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

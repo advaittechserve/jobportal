@@ -17,6 +17,7 @@ const jobSlice = createSlice({
         },
         setSingleJob:(state,action) => {
             state.singleJob = action.payload;
+            
         },
         setAllAdminJobs:(state,action) => {
             state.allAdminJobs = action.payload;
@@ -29,7 +30,14 @@ const jobSlice = createSlice({
         },
         setSearchedQuery:(state,action) => {
             state.searchedQuery = action.payload;
-        }
+        },
+        updateJobStatus: (state, action) => {
+            const { jobId, isActive } = action.payload;
+            const jobIndex = state.allAdminJobs.findIndex(job => job._id === jobId);
+            if (jobIndex !== -1) {
+                state.allAdminJobs[jobIndex].isActive = isActive; // Update the status in the state
+            }
+        },
     }
 });
 export const {
@@ -38,6 +46,7 @@ export const {
     setAllAdminJobs,
     setSearchJobByText, 
     setAllAppliedJobs,
-    setSearchedQuery
+    setSearchedQuery,
+    updateJobStatus
 } = jobSlice.actions;
 export default jobSlice.reducer;

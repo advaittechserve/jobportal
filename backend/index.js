@@ -11,7 +11,7 @@ import applicationRoute from "./routes/application.route.js";
 dotenv.config({});
 
 const app = express();
-
+//mongodb+srv://it:LlDUS6MhrXosVido@cluster0.tjl53.mongodb.net/
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

@@ -72,14 +72,21 @@ export const getCompanyById = async (req, res) => {
 export const updateCompany = async (req, res) => {
     try {
         const { name, description, website, location } = req.body;
- 
+        const updateData = {};
+
+        // Add properties to updateData only if they are defined
+        if (name) updateData.name = name;
+        if (description) updateData.description = description;
+        if (website) updateData.website = website;
+        if (location) updateData.location = location;
+
         const file = req.file;
-        // idhar cloudinary ayega
-        const fileUri = getDataUri(file);
-        const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
-        const logo = cloudResponse.secure_url;
-    
-        const updateData = { name, description, website, location, logo };
+        if (file) {
+            // Handle file upload if provided
+            const fileUri = getDataUri(file);
+            const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+            updateData.logo = cloudResponse.secure_url; // Assuming you want to update the logo
+        }
 
         const company = await Company.findByIdAndUpdate(req.params.id, updateData, { new: true });
 
@@ -87,14 +94,42 @@ export const updateCompany = async (req, res) => {
             return res.status(404).json({
                 message: "Company not found.",
                 success: false
-            })
+            });
         }
-        return res.status(200).json({
-            message:"Company information updated.",
-            success:true
-        })
 
+        return res.status(200).json({
+            message: "Company information updated.",
+            company, // Include the updated company in the response
+            success: true
+        });
     } catch (error) {
         console.log(error);
+        return res.status(500).json({
+            message: "An error occurred while updating the company.",
+            success: false
+        });
+    }
+}
+// Example: delete company controller
+export const deleteCompany = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const company = await Company.findByIdAndDelete(id);
+        if (!company) {
+            return res.status(404).json({
+                message: "Company not found.",
+                success: false,
+            });
+        }
+        return res.status(200).json({
+            message: "Company deleted successfully.",
+            success: true,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: "An error occurred while deleting the company.",
+            success: false,
+        });
     }
 }

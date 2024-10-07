@@ -8,7 +8,7 @@ export const postJob = async (req, res) => {
 
         if (!title || !description || !requirements || !salary || !location || !jobType || !experience || !position || !companyId) {
             return res.status(400).json({
-                message: "Somethin is missing.",
+                message: "Something is missing.",
                 success: false
             })
         };
@@ -65,7 +65,7 @@ export const getJobById = async (req, res) => {
     try {
         const jobId = req.params.id;
         const job = await Job.findById(jobId).populate({
-            path:"applications"
+            path: "applications"
         });
         if (!job) {
             return res.status(404).json({
@@ -83,8 +83,8 @@ export const getAdminJobs = async (req, res) => {
     try {
         const adminId = req.id;
         const jobs = await Job.find({ created_by: adminId }).populate({
-            path:'company',
-            createdAt:-1
+            path: 'company',
+            createdAt: -1
         });
         if (!jobs) {
             return res.status(404).json({
@@ -100,3 +100,78 @@ export const getAdminJobs = async (req, res) => {
         console.log(error);
     }
 }
+
+export const updateJob = async (req, res) => {
+    const { id } = req.params;
+    const { title, description, requirements, salary, location, jobType, experience, position, companyId } = req.body;
+
+    try {
+        const job = await Job.findById(id);
+
+        if (!job) {
+            return res.status(404).json({
+                success: false,
+                message: "Job not found",
+            });
+        }
+
+        // Update the job details
+        job.title = title || job.title;
+        job.description = description || job.description;
+        job.requirements = requirements || job.requirements;
+        job.salary = salary || job.salary;
+        job.location = location || job.location;
+        job.jobType = jobType || job.jobType;
+        job.experienceLevel = experience || job.experienceLevel;
+        job.position = position || job.position;
+        job.companyId = companyId || job.companyId;
+
+        // Save the updated job
+        await job.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Job updated successfully",
+            job,
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "An error occurred while updating the job",
+            error: error.message,
+        });
+    }
+};
+
+export const updateJobStatus = async (req, res) => {
+    const { id } = req.params;
+    const { isActive } = req.body;
+
+    try {
+        const job = await Job.findById(id);
+        if (!job) {
+            return res.status(404).json({
+                success: false,
+                message: "Job not found",
+            });
+        }
+
+        // Update the job's active status
+        job.isActive = isActive;
+
+        // Save the updated job
+        await job.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Job status updated successfully",
+            job,
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "An error occurred while updating the job status",
+            error: error.message,
+        });
+    }
+};

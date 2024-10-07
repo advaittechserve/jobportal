@@ -1,0 +1,417 @@
+.footerSection {
+    margin-top: 30px;
+    background: var(--colorWhite);
+    padding: 30px 0;
+  }
+  
+  @media (min-width: 768px) {
+    .footerSection {
+      padding: 60px 0;
+      margin-top: 60px;
+    }
+  }
+  
+  .footerGrid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+  
+  .gridItem {
+    padding: 0 16px;
+  }
+  
+  .connectionBox {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 25px;
+  }
+  
+  @media (min-width: 1024px) {
+    .connectionBox {
+      flex: 0 0 49%;
+      max-width: 49%;
+      margin-bottom: 0;
+    }
+  }
+  
+  .connectionBox .box {}
+  
+  .connectionBox .topBox {
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .connectionBox .footerTitle {
+    color: var(--titleColor);
+    font-size: 128px;
+    line-height: 140px;
+  }
+  
+  .connectionBox .footerLogo {
+    width: 77px;
+    margin-bottom: 30px;
+  }
+  
+  .connectionBox .address {
+    line-height: 24px;
+    font-size: 14px;
+  }
+  
+  @media (min-width: 1024px) {
+    .connectionBox .address {
+      font-size: 16px;
+    }
+  }
+  
+  .connectionBox .support {
+    margin-top: 24px;
+  }
+  
+  @media (min-width: 768px) {
+    .connectionBox .support {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  .connectionBox .support .item {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    padding-right: 16px;
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .connectionBox .support .item:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .connectionBox .support .item {
+      margin-bottom: 0;
+    }
+  
+    .connectionBox .support .item::after {
+      content: "";
+      position: absolute;
+      right: -2px;
+      top: 10px;
+      height: 4px;
+      width: 4px;
+      background: #000;
+      border-radius: 4px;
+    }
+  
+    .connectionBox .support .item:last-child::after {
+      display: none;
+    }
+  }
+  
+  .connectionBox .support img {
+    margin-right: 10px;
+  }
+  
+  .connectionBox .support .link {
+    color: var(--primaryColor);
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .connectionBox .support .link:hover {
+    color: var(--splColor);
+  }
+  
+  @media (min-width: 1024px) {
+    .connectionBox .support .link {
+      font-size: 16px;
+    }
+  }
+  
+  .connectionBox .socialLinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+  }
+  
+  .connectionBox .socialLinks li {
+    width: 32px;
+  }
+  
+  .connectionBox .socialLinks li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+  }
+  
+  .linksList {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 25px;
+  }
+  
+  @media (min-width: 768px) {
+    .linksList {
+      flex: 0 0 50%;
+      max-width: 50%;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .linksList {
+      flex: 0 0 21%;
+      max-width: 21%;
+      display: block;
+    }
+  }
+  
+  .linksList .box {
+    padding: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    .linksList .box {
+      padding: 0 20px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .linksList .box {
+      padding: 0 32px;
+    }
+  }
+  
+  .linksList .list {
+    list-style: none;
+    margin: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    .linksList .list {
+      padding: 51px 0 0;
+    }
+  }
+  
+  .linksList .list li {
+    margin-bottom: 16px;
+  }
+  
+  .linksList .list li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .linksList .list a {
+    text-decoration: none;
+    color: var(--primaryColor);
+    font-size: 14px;
+  }
+  
+  .linksList .list a:hover {
+    color: var(--splColor);
+  }
+  
+  @media (min-width: 1024px) {
+    .linksList .list a {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  
+  .newsLetter {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .newsLetter {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .newsLetter {
+      flex: 0 0 30%;
+      max-width: 30%;
+    }
+  }
+  
+  .newsLetter .box {
+    padding: 16px;
+    background: #f4f4f4;
+    border-radius: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    .newsLetter .box {
+      padding: 25px;
+      border-radius: 24px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .newsLetter .box {
+      padding: 32px;
+    }
+  }
+  
+  .newsLetter .iconBox {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 4px;
+  }
+  
+  .newsLetter .iconBox img {
+    height: 100%;
+  }
+  
+  .newsLetter .titleText {
+    font-size: 20px;
+    line-height: 25px;
+    color: var(--titleColor);
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 768px) {
+    .newsLetter .titleText {
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .newsLetter .titleText {
+      font-size: 36px;
+      line-height: 40px;
+      margin-bottom: 24px;
+    }
+  }
+  
+  /* Components */
+  .formBox .formGroup {
+    margin-bottom: 24px;
+  }
+  
+  .formBox .formGroup:last-child {
+    margin-bottom: 0;
+  }
+  
+  .formBox .formGroup.errorGroup .errorMsg {
+    display: block;
+  }
+  
+  .formBox .formLabel {
+    font-size: 12px;
+    line-height: 20px;
+    color: var(--titleColor);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: normal;
+  }
+  
+  .formBox .formControl {
+    background: var(--colorWhite);
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 12px;
+    line-height: 17px;
+    color: var(--titleColor);
+    border: none;
+    width: 100%;
+  }
+  
+  .formBox .formControl::placeholder {
+    opacity: 0.5;
+  }
+  
+  .formBox textarea {
+    min-height: 120px;
+    resize: none;
+  }
+  
+  .formBox .numberFormControl {
+    display: flex;
+    align-items: center;
+    background: var(--colorWhite);
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .formBox .numberFormControl .numberBtn {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+  }
+  
+  .formBox .numberFormControl .numberBtn span {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--titleColor);
+  }
+  
+  .formBox .numberFormControl .formControl {
+    flex: 1;
+  }
+  
+  .formBox .numberFormControl .numListDropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    background: var(--colorWhite);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+  }
+  
+  .formBox .numberFormControl.active .numListDropdown {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .formBox .numberFormControl .numListDropdown .searchBox {
+    width: 100%;
+    padding: 0 0 16px;
+  }
+  
+  .formBox .numberFormControl .numListDropdown .searchBox .formControl {
+    padding: 12px 16px;
+  }
+  
+  .formBox .numberFormControl .numListDropdown .numList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .formBox .numberFormControl .numListDropdown .numList li {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .formBox .numberFormControl .numListDropdown .numList li:hover {
+    background: #eee;
+  }
+  
